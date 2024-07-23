@@ -1,12 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Home from "./pages/Home/Home";
+import ContextStore from "./context/ContextStore";
 
 function App() {
   return (
-    <div>
-      <Home />
-    </div>
+    <ContextStore>
+      <div>
+        <Home />
+      </div>
+    </ContextStore>
   );
 }
 
