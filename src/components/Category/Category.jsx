@@ -1,23 +1,21 @@
-// import React, { useContext } from 'react'
-// import { storeContext } from '../../context/ContextStore'
+import React, { useContext } from 'react'
+import { storeContext } from '../../context/ContextStore'
 
-// const Category = ({foodCategory, setFoodCategory}) => {
-//     const category = useContext(storeContext)
-//     console.log(category)
-//   return (
-//     <div className=' mx-auto'>
-//         <div className='flex items-center justify-between flex-grow gap-3'>
-//         {category.map((item)=>{
-//             return(
-//                 <div className='flex flex-col items-center p-1'>
-//                     <img className='rounded-full w-24 p-1 bg-orange-300' src={item.image} alt="image" />
-//                     <h1 className='text-lg font-semibold'>{item.name}</h1>  
-//                 </div>
-//             )
-//         })}
-//         </div>
-//     </div>
-//   )
-// }
+const Category = () => {
+    const {categories} = useContext(storeContext)
+  return (
+    <div className='max-w-[1640px] mx-auto px-4 py-12'>
+        <h1 className='text-orange-600 font-bold text-4xl text-center'>Top Rated Menu Items</h1>
+        <div className='grid grid-cols-2 sm:grid-cols-4 gap-6 py-6'>
+        {categories.map((item, index)=>(
+            <div className='bg-gray-100 rounded-lg p-4 flex justify-between items-center' key={index}>
+                <h2 className='font-bold sm:text-xl'>{item.name}</h2>
+                <img className='w-20' src={item.image} alt="img" />
+            </div>
+        ))}
+        </div>
+    </div>
+  )
+}
 
-// export default Category
+export default Category
